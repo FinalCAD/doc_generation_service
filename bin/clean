@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+rm -rfv log/*
+rm -rfv tmp/*
+rm -rfv public/*
+rm -rfv files/*
