@@ -32,7 +32,6 @@ class PrinceXmlWrapper < Sinatra::Application
 
   get '/status' do
     status = Registry.instance.status(params['id'])[:status]
-    binding.pry
     { status: status, download_url: "http://#{request.host_with_port}/files?id=#{params['id']}" }.to_json
   end
 
