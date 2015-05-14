@@ -21,11 +21,14 @@ class PrinceXmlWrapper < Sinatra::Application
     type         = params.fetch('document_type')
     callback_url = params.fetch('callback_url')
 
-    Document.new.generate! token, url, type
+    Thread.new do
+      sleep(1)
+      Document.new.generate! token, url, type
 
-    data, headers = {}, {}
-    request  = RestClient::Request.new(method: :post, url: callback_url, payload: data, headers: headers)
-    response = request.execute
+      data, headers = {}, {}
+      request  = RestClient::Request.new(method: :post, url: callback_url, payload: data, headers: headers)
+      response = request.execute
+    end
 
     { status_id: token }.to_json
   end
