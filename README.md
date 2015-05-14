@@ -2,6 +2,13 @@
 
 This is a Sinatra service for binding PrinceXML tool and process to generation of document. This service is designed to work with ttps://github.com/FinalCAD/doc_generation_wrapper but you can use curl call instead of.
 
+## Requirements
+
+App relies on some binaries to be present on the system:
+
+* PrinceXML http://www.princexml.com/download/
+* curl
+
 ## Installation
 
 Add this line to your application's Gemfile:
