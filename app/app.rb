@@ -21,7 +21,11 @@ class PrinceXmlWrapper < Sinatra::Application
     type         = params.fetch('document_type')
     callback_url = params.fetch('callback_url')
 
+    # Generation is started in a thread to solve two problems:
+    # 1. respond ASAP
+    # 2. provide the client with status_id before the generation callback is fired
     Thread.new do
+      # We don't want any race conditions between /docs response and generation callback
       sleep(1)
       Document.new.generate! token, url, type
 
