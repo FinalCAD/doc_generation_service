@@ -1,4 +1,8 @@
-tmp/*
-public/*
-files/*
-log
+/tmp/*
+!/tmp/.keep
+/public/*
+!/public/.keep
+/files/*
+!/files/.keep
+/log/*
+!/log/.keep
