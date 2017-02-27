@@ -17,7 +17,7 @@ class PrinceXmlWrapper < Sinatra::Application
 
   post '/docs' do
     url          = params.fetch('document_url')
-    token        = params.fetch('token')
+    token        = SecureRandom.hex
     type         = params.fetch('document_type')
     callback_url = params.fetch('callback_url')
 
